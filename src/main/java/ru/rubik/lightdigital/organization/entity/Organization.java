@@ -29,5 +29,10 @@ public class Organization {
     private String inn;
 
     @OneToMany
+    @JoinTable(
+            name = "organization_admins",
+            joinColumns = @JoinColumn(name = "organization_id"),
+            inverseJoinColumns = @JoinColumn(name = "admin_id")
+    )
     private List<User> eventAdmins = new ArrayList<>();
 }

@@ -31,8 +31,10 @@ public class Document {
     private DocumentStatus status;
 
     @OneToOne
+    @JoinColumn(name = "organization_id")
     private Organization organization;
 
     @OneToOne
+    @JoinColumn(name = "customer_id")
     private User customer;
 }

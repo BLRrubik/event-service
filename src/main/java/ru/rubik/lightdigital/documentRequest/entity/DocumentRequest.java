@@ -14,7 +14,7 @@ import ru.rubik.lightdigital.user.entity.User;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "documet_requests")
+@Table(name = "document_requests")
 public class DocumentRequest {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,8 +26,10 @@ public class DocumentRequest {
     private DocumentRequestStatus status;
 
     @OneToOne
+    @JoinColumn(name = "customer_id")
     private User customer;
 
     @OneToOne
+    @JoinColumn(name = "organization_id")
     private Organization organization;
 }

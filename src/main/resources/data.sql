@@ -1,0 +1,1 @@
+INSERT INTO organizations(inn, title) VALUES ('123', 'title');

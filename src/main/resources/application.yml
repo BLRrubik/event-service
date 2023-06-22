@@ -7,11 +7,14 @@ spring:
     url: ${DB_URL:jdbc:postgresql://localhost:5432/light}
     username: postgres
     password: postgres
+  sql:
+    init:
+      mode: never
   jpa:
     generate-ddl: false
     show-sql: true
     hibernate:
-      ddl-auto: validate
+      ddl-auto: none
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
 

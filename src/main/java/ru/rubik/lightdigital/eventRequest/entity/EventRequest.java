@@ -35,8 +35,10 @@ public class EventRequest {
     private EventRequestStatus status;
 
     @ManyToOne
+    @JoinColumn(name = "author_id")
     private User author;
 
     @ManyToOne
+    @JoinColumn(name = "event_id")
     private Event event;
 }

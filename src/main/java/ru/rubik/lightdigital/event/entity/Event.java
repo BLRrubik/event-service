@@ -13,6 +13,7 @@ import ru.rubik.lightdigital.user.entity.User;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name = "events")
 public class Event {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,6 +30,7 @@ public class Event {
     private Float price;
 
     @ManyToOne
+    @JoinColumn(name = "author_id")
     private User author;
 
 }
