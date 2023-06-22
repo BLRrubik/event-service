@@ -1,6 +1,7 @@
 package ru.rubik.lightdigital.user.entity.enums;
 
 public enum Role {
-    ADMIN,
+    ORGANIZATION_ADMIN,
+    EVENT_ADMIN,
     USER
 }

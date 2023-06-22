@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import ru.rubik.lightdigital.exception.AlreadyExistsException;
 import ru.rubik.lightdigital.exception.AuthenticationException;
+import ru.rubik.lightdigital.exception.ConflictException;
 import ru.rubik.lightdigital.exception.NotFoundException;
 import ru.rubik.lightdigital.exception.dto.ExceptionDto;
 
@@ -42,6 +43,17 @@ public class ExceptionsHandler {
                         ZonedDateTime.now()
                 ),
                 HttpStatusCode.valueOf(403)
+        );
+    }
+
+    @ExceptionHandler(ConflictException.class)
+    public ResponseEntity<ExceptionDto> authException(ConflictException e) {
+        return new ResponseEntity<>(
+                new ExceptionDto(
+                        e.getMessage(),
+                        ZonedDateTime.now()
+                ),
+                HttpStatusCode.valueOf(409)
         );
     }
 
