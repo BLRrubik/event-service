@@ -1,0 +1,25 @@
+version: '3.1'
+services:
+  service:
+    build: .
+    image: light-image
+    container_name: light-container
+    ports:
+      - "9090:9090"
+    environment:
+      - DB_URL=jdbc:postgresql://db:5432/light
+      - SERVER_PORT=9090
+      - SECRET_KEY=7A2621BBAC3FF47E4BF95EFEB6F8B89442568DB55A7EECAB12CA45FF32
+    depends_on:
+      - db
+      - rabbitmq
+
+  db:
+    image: postgres:13-alpine
+    container_name: db-container
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=reports
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres

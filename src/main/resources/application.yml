@@ -1,10 +1,10 @@
 server:
-  port: 9090
+  port: ${SERVER_PORT:9090}
 
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/light
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/light}
     username: postgres
     password: postgres
   jpa:
@@ -14,11 +14,6 @@ spring:
       ddl-auto: validate
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
-  flyway:
-    baselineOnMigrate: true
-    locations: 'classpath:db/migration'
-    schemas: 'public'
-    enabled: true
 
 openapi:
   service:
@@ -26,4 +21,4 @@ openapi:
     version: 1.0.0
 
 secret:
-  key: 7A2621BBAC3FF47E4BF95EFEB6F8B89442568DB55A7EECAB12CA45FF32
+  key: ${SECRET_KEY:7A2621BBAC3FF47E4BF95EFEB6F8B89442568DB55A7EECAB12CA45FF32}
